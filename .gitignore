@@ -1,0 +1,23 @@
+# Ignore build files
+*.o
+*.out
+*.exe
+
+# Ignore backups and logs
+*~
+*.log
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore compiled binaries
+bin/
+build/
+
+# Ignore editor and IDE configs
+.vscode/
+.idea/
+
+# Ignore generated folders
+*.dSYM/
