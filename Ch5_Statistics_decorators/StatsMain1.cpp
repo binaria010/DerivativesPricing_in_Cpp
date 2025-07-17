@@ -96,7 +96,7 @@ unique_ptr<PayOff> create_payoff(const Inputs& input, string name)
         return make_unique<PayOffPowerPut>(input.Strike, Power);
     }
     }
-throw runtime_error("Invalid option entered.\n");
+throw invalid_argument("Invalid option entered.\n");
 }
 
 void printResults(string name, double results)
@@ -125,7 +125,7 @@ int main()
     map<string, double> results = gatherer.GetResultsSoFar();
     printResults(name, results["mean"]);
     }
-    
+
     catch (const exception& e)
     {
         cerr << "Error: " << e.what() << endl;
