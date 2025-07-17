@@ -1,5 +1,3 @@
-# C++ MonteCarlo Option Pricing
-
 # C++ Monte Carlo Option Pricing
 
 This project implements Monte Carlo methods for pricing European options using object-oriented C++.
