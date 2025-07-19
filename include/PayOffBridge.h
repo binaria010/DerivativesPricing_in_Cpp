@@ -5,13 +5,12 @@
 
 class PayOffBridge {
 
-    public:
-
-        PayOffBridge(const PayOff& innerPayOff); //constructor
-        PayOffBridge(const PayOffBridge& original); //copy constructor
-        PayOffBridge& operator=(const PayOffBridge& original); // assignment operator
-        ~PayOffBridge();  //destructor
-        inline double operator()(double Spot) const;  // method to compute the payoff of the option
+public:
+    PayOffBridge(const PayOff& innerPayOff); //constructor
+    PayOffBridge(const PayOffBridge& original); //copy constructor
+    PayOffBridge& operator=(const PayOffBridge& original); // assignment operator
+    ~PayOffBridge();  //destructor
+    inline double operator()(double Spot) const;  // method to compute the payoff of the option
 
 private:
    
