@@ -49,5 +49,6 @@
         "string_view": "cpp",
         "unordered_map": "cpp",
         "map": "cpp"
-    }
+    },
+    "diffEditor.experimental.showEmptyDecorations": true
 }

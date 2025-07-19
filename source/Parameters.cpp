@@ -10,7 +10,6 @@ Parameters::Parameters(const ParametersInner& innerObject)
     InnerObjectPtr = innerObject.clone();
     std::cout << "Parameters constructed.\n";
 }
-
 // copy constructor of PArameters
 Parameters::Parameters(const Parameters& original)
 {

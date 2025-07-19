@@ -61,20 +61,19 @@ inline double Parameters::IntegralSquare(double time1, double time2) const
 {
     return InnerObjectPtr->IntegralSquare(time1, time2);
 }
-
 // Now declare subclasses of PArametersInner: PArametersConstant and other types
 
 class ParametersConstant : public ParametersInner
 {
-    public:
-        ParametersConstant(double constant);//constructor(a way of initialize it is with the constant value)
-        // virtual ParametersConstant* clone() const; // raw
-        virtual std::unique_ptr<ParametersInner> clone() const override;   //smart
-        virtual double Integral(double time1, double time2) const override;
-        virtual double IntegralSquare(double time1, double time2) const override;
-    private:
-        double Constant; 
-        double ConstantSquare;
+public:
+    ParametersConstant(double constant);//constructor(a way of initialize it is with the constant value)
+    // virtual ParametersConstant* clone() const; // raw
+    virtual std::unique_ptr<ParametersInner> clone() const override;   //smart
+    virtual double Integral(double time1, double time2) const override;
+    virtual double IntegralSquare(double time1, double time2) const override;
+private:
+    double Constant; 
+    double ConstantSquare;
 };
 
 // now in the source file Parameters.cpp we define all the members defined here except for the inline methods

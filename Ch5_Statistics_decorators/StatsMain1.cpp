@@ -99,9 +99,11 @@ unique_ptr<PayOff> create_payoff(const Inputs& input, string name)
 throw invalid_argument("Invalid option entered.\n");
 }
 
-void printResults(string name, double results)
+void printResults(string name, map<string,double> results)
 {
-    cout << "For the option " << name << " the price is: " << results << endl;
+    cout << "For the option " << name<< " results are: "<<endl;
+    for (const auto& pair : results)
+        cout << pair.first << " : " << pair.second << endl;
 }
 
 
@@ -123,7 +125,7 @@ int main()
                     Vol, Rate, input.NumberOfPaths, gatherer);
     
     map<string, double> results = gatherer.GetResultsSoFar();
-    printResults(name, results["mean"]);
+    printResults(name, results);
     }
 
     catch (const exception& e)
