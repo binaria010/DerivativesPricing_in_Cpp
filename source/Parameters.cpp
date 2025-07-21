@@ -28,10 +28,9 @@ Parameters::~Parameters()
 {
     // delete InnerObjectPtr; // for raw pointers
     // default destructor for smart 
-    std::cout << "bject destructed.\n";
+    std::cout << "object destructed.\n";
 }
 // other non inline methods declared: Mean and RMS
-//this Mean method sounds like a wrapper method for Integral
 double Parameters::Mean(double time1, double time2) const 
 {
     double total = InnerObjectPtr->Integral(time1, time2);
