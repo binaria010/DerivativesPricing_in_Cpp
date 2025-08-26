@@ -12,10 +12,10 @@ SRCS = ../source/PayOff3.cpp \
        ../source/Vanilla2.cpp \
        ../source/Parameters.cpp \
        ../source/PieceWiseConstParameters.cpp \
-       VanillaMain3.cpp
+       Ex4.3Main.cpp
 
 # Output executable
-TARGET = VanillaMain3
+TARGET = Ex4.3Main
 
 # Default rule
 all: $(TARGET)
