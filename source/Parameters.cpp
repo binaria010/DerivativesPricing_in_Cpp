@@ -23,7 +23,7 @@ Parameters& Parameters::operator=(const Parameters& other)
     }
     return *this;
 }
-//destructor
+//destructor: default if using smart pointers, otherwise we have to use delete
 Parameters::~Parameters()
 {
     // delete InnerObjectPtr; // for raw pointers
