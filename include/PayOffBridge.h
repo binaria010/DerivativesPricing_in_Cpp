@@ -1,7 +1,7 @@
-// header for the PayOffBride class
+// header for the PayOffBride class (we have both raw and smart pointer versions)
+#pragma once
 #include <memory>
 #include <PayOff3.h>
-#pragma once
 
 class PayOffBridge {
 
@@ -14,9 +14,10 @@ public:
 
 private:
    
-    // raw pointer
+    // raw pointer version:
     // PayOff* ThePayOffPtr;
-    //smart pointer
+
+    //smart pointer version:
     std::unique_ptr<PayOff> ThePayOffPtr;
 
 };

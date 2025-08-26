@@ -3,7 +3,11 @@
 2. PArametersInner (base class for several types of parameters: constant r and sigma, polynomials, exponentials..etc)
 3. ParametersConstant
 4 ..other types 
+
+(we have both raw and smart pointer versions)
 */
+
+
 
 /*
 

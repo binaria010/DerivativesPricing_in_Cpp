@@ -75,10 +75,17 @@ ParametersPWConstant::ParametersPWConstant(std::vector<double> times_,
         throw std::invalid_argument("constructor: number of times has to be one more than number of values.\n");
 }
 
+// clone (smart pointer version)
 std::unique_ptr<ParametersInner> ParametersPWConstant::clone() const
 {
     return std::make_unique<ParametersPWConstant>(*this);
 }
+
+// clone (raw pointer version)
+
+// ParametersInner* ParametersPWConstant::clone() const {
+//     return new ParametersPWConstant(*this);
+// }
 
 std::vector<double> ParametersPWConstant::get_Times() const
 {
