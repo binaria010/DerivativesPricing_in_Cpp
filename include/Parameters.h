@@ -5,6 +5,14 @@
 4 ..other types 
 */
 
+/*
+
+in the Bridge pattern the class *Parameters* is the bridge, the 
+interface with the outside world
+
+*/
+
+
 #include <memory>
 #pragma once
 
@@ -29,7 +37,8 @@ class Parameters
 {
     
 public:
-    Parameters(const ParametersInner& innerObject); //constructor
+
+    Parameters(const ParametersInner& innerObject); 
     Parameters(const Parameters& original); //copy constructor
     Parameters& operator=(const Parameters& other); //assginment
     virtual ~Parameters();
@@ -78,3 +87,16 @@ private:
 
 // now in the source file Parameters.cpp we define all the members defined here except for the inline methods
 
+
+
+/*
+
+* constructor allows implicit conversion when the argument in main is 
+of type ParametersInner& (or any derived class of it).
+
+* we need to define the member function Integral (and IntegralSquare)
+    in the Parameters class, so when called the method on the object
+    of type Parameters it can be computed
+
+
+*/
