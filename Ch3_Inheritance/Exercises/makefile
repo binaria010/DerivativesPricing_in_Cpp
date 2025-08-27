@@ -7,10 +7,10 @@ SRCS = ../source/PayOff2.cpp \
        ../source/Random1.cpp \
        ../source/SimpleMC2.cpp \
        ../source/PayOffPower.cpp \
-       SimpleMCmain3.cpp
+       ex3.2.cpp
 
 # Output executable
-TARGET = SimpleMCmain3
+TARGET = ex3.2main
 
 # Default rule
 all: $(TARGET)
