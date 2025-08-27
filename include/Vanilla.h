@@ -1,7 +1,7 @@
 // declare the VanillaOption class
+#pragma once
 #include <PayOff3.h>
 #include <PayOffPower2.h>
-#pragma once
 
 class VanillaOption{
 
@@ -15,6 +15,8 @@ class VanillaOption{
         double OptionPayOff(double Spot) const;
     private:
         double Expiry;
-        PayOff* ThePayOffPtr; //pointer to ThePayOff
+        // PayOff* ThePayOffPtr; //raw pointer to ThePayOff 
 
+        // smart pointer:
+        std::unique_ptr<PayOff> ThePayOffPtr;
 };

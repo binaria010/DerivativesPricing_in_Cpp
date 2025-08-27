@@ -1,4 +1,5 @@
 #include <MCStatistics.h>
+#include <iostream>
 
 
 // definition of methods for subclasses:
@@ -6,7 +7,9 @@
 //-----------------------
 // statisticsMean class:
 
-StatisticsMean::StatisticsMean(): RunningSum(0.0), PathsDone(0UL){}
+StatisticsMean::StatisticsMean(): RunningSum{0.0}, PathsDone{0UL} {
+    std::cout << "StatisticMean constructed!\n";
+}
 
 std::unique_ptr<StatisticsMC> StatisticsMean::clone() const 
 {
@@ -14,7 +17,9 @@ std::unique_ptr<StatisticsMC> StatisticsMean::clone() const
 }
 
 void StatisticsMean::DumpOneResult(double result) 
-// this methid modifies the data members of the class
+// this methid modifies the data members of the class: 
+// updates by one the paths done and the result of RunningSum after this path
+// the efficiency of updating "in place" is because is being called at each iteration
 {
     PathsDone++;
     RunningSum += result;

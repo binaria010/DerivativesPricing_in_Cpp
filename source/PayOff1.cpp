@@ -17,6 +17,6 @@ double PayOff::operator()(double Spot) const{
     case put:
         return std::max(Strike - Spot, 0.0);
     default:
-        throw("Unknown type foud. ");
+        throw("Unknown type found. ");
     }
 }

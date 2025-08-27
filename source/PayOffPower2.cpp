@@ -6,7 +6,8 @@ using namespace std;
 
 // PayOff power call:
 
-PayOffPowerCall::PayOffPowerCall(double Strike_, double Power_): Strike(Strike_), Power(Power_){
+PayOffPowerCall::PayOffPowerCall(double Strike_, double Power_): 
+            Strike(Strike_), Power(Power_){
 
 }
 double PayOffPowerCall::operator () (double Spot) const {

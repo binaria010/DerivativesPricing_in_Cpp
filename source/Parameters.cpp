@@ -8,7 +8,7 @@ for PArameters class we need to define: 1. Constructor, 2. copy constructor, 3. 
 Parameters::Parameters(const ParametersInner& innerObject)
 {
     InnerObjectPtr = innerObject.clone();
-    std::cout << "Parameters constructed.\n";
+    std::cout << "Parameters object constructed.\n";
 }
 // copy constructor of PArameters
 Parameters::Parameters(const Parameters& original)
@@ -28,7 +28,7 @@ Parameters::~Parameters()
 {
     // delete InnerObjectPtr; // for raw pointers
     // default destructor for smart 
-    std::cout << "object destructed.\n";
+    std::cout << "Parameters object destructed.\n";
 }
 // other non inline methods declared: Mean and RMS
 double Parameters::Mean(double time1, double time2) const 

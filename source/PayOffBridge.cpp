@@ -6,13 +6,13 @@ PayOffBridge::PayOffBridge(const PayOff& innerPayOff){
     
     // clones the PayOff object
     ThePayOffPtr = innerPayOff.clone();
-    std::cout<< "constructor with PayOff\n"; 
+    std::cout<< "PayOffBridge constructor with PayOff\n"; 
 }
 //copy constructor
 PayOffBridge::PayOffBridge(const PayOffBridge& original){
 
     ThePayOffPtr = original.ThePayOffPtr->clone();
-    std::cout<< "copy constructor\n";
+    std::cout<< "PayOffBridge copy constructor\n";
 }
 //assignmente
 PayOffBridge& PayOffBridge::operator=(const PayOffBridge& original){
@@ -28,7 +28,7 @@ PayOffBridge& PayOffBridge::operator=(const PayOffBridge& original){
 
 PayOffBridge::~PayOffBridge(){
     // delete ThePayOffPtr;   // for raw pointers
-    std::cout <<"pointer deleted\n";
+    std::cout <<"PayOffBridge destructed. pointer deleted\n";
 }
 
 // default destructor is fine since unique_ptr will delete automatically
