@@ -1,3 +1,4 @@
+// header file for the StatisticsMC class and subclasses using smart pointers
 #pragma once
 
 #include <vector>

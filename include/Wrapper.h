@@ -8,7 +8,7 @@ private:
 public:
     Wrapper() //constructor
     {
-        DataPtr = 0;  //null pointer by default
+        DataPtr = nullptr;  //null pointer by default
     }
     Wrapper(const T& inner)
     // typename (or class) T inner must have a clone method!
@@ -17,25 +17,25 @@ public:
     }
     ~Wrapper()
     {
-        if (DataPtr != 0)
+        if (DataPtr)  // if not null
             delete DataPtr;
     }
     Wrapper(const Wrapper<T>& original)
     //copy constructor
     {
-        if (this != &original) //if not equal then copy clone
+        if (original.DataPtr) //if not null then copy clone
             DataPtr = original.DataPtr->clone();
         else
-            DataPtr = 0;
+            DataPtr = nullptr;
     }
     Wrapper& operator=(const Wrapper<T>& other) // assignment
     {
         if (this != other)
         {
-            if (DataPtr =! 0) //check if poitns to something
-                delete DataPtr;  //the deletes
-            DataPtr = (other.DataPtr != 0) ? 
-                    other.DataPtr->clone() : 0;
+            if (DataPtr) // if not null check if points to something
+                delete DataPtr;  //then deletes
+            DataPtr = (other.DataPtr != nullptr) ? 
+                    other.DataPtr->clone() : nullptr;
 
         }
         return *this;    

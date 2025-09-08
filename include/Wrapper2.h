@@ -1,5 +1,5 @@
 /*
-This is the header for the Wrapper class declaratioin and definion
+This is the header for the Wrapper class declaration and definion
 like Wrapper.h but using SMART POINTERS!
 */
 #pragma once
