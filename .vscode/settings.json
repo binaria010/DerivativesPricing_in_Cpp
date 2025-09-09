@@ -48,7 +48,8 @@
         "stack": "cpp",
         "string_view": "cpp",
         "unordered_map": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "__tree": "cpp"
     },
     "diffEditor.experimental.showEmptyDecorations": true
 }
