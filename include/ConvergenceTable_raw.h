@@ -22,4 +22,20 @@ public:
     virtual std::map<std::string, std::vector<double>> GetTableSoFar() const;
     virtual std::map<std::string, double> GetResultsSoFar() const override;
 
+public:
+    inline void PrintTable() const;
 };
+
+
+void ConvergenceTable::PrintTable() const {
+
+    for (auto data : TableSoFar){
+        std::cout << "for "<< data.first << " the estimated values are: \n";
+        const std::vector<double>& vec = data.second;
+        for (size_t i =0; i < vec.size() - 1; i+=2)
+        {
+            std::cout << "at iteration " << vec[i]  << ": " << vec[i+1] << "\n";
+        }
+        std::cout << std::endl;
+    }
+}

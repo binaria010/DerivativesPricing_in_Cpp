@@ -5,8 +5,7 @@ to SimpleMC7.h of the book
 #pragma once
 #include <Vanilla2.h>
 #include <Parameters.h>
-#include <MCStatistics_raw.h>
-// #include <MCStatistics.h>   // for the Smart pointers version with no wrapper
+#include <MCStatistics.h>   // for the Smart pointers version with no wrapper
 
 void SimpleMonteCarlo5(const VanillaOption& TheOption,
             double Spot, const Parameters& Vol, 

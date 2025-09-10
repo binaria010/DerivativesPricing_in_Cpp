@@ -6,6 +6,13 @@ ConvergenceTable::ConvergenceTable(const StatisticsMC& Inner_):
                             Inner{Inner_.clone()}, StoppingPoint{2},
                             PathsDone{0} {}
 
+// deep copy constructor:
+ConvergenceTable::ConvergenceTable(const ConvergenceTable& other):
+                Inner(other.Inner->clone()), TableSoFar(other.TableSoFar),
+                StoppingPoint(other.StoppingPoint), PathsDone(other.PathsDone)
+                {}
+
+
 std::unique_ptr<StatisticsMC> ConvergenceTable::clone() const {
     return std::make_unique<ConvergenceTable>(*this);  // this invokes a copy constructor
 }

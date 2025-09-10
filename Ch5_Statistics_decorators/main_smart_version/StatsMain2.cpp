@@ -1,6 +1,6 @@
 /*
 this main uses files:
-1. MCStatitistics_raw.cpp
+1. MCStatitistics.cpp : use smart pointers so no Wrapper needed
 2. SimpleMC6.cpp
 3. Vanilla2.cpp
 4. PayOff3.cpp
@@ -9,13 +9,22 @@ this main uses files:
 7. PieceWiseConstParameters.cpp
 8. Random1.cpp 
 9. PayOffPower2.cpp
+10. ConvergenceTable_smart.cpp
+
+no Wrapper.cpp file since it is a templetized class it
+has its definition in the .h file
 */
 
 #include <PayOffPower2.h>
 #include <PieceWiseConstParameters.h>
-#include <SimpleMC6.h>
+#include <SimpleMC6_smart.h>
 #include <iostream>
 #include <string>
+// the new classes headers:
+#include <ConvergenceTable_smart.h>
+
+
+
 using namespace std;
 
 
@@ -120,12 +129,20 @@ int main()
     VanillaOption theOption(*payoffptr, input.Expiry);
     ParametersConstant Vol(input.Vol);
     ParametersConstant Rate(input.r);
+
+    // declare both gatherer and convergencetable
     StatisticsMean gatherer;
-    SimpleMonteCarlo5(theOption, input.Spot, 
-                    Vol, Rate, input.NumberOfPaths, gatherer);
+    ConvergenceTable gathererTwo(gatherer);
     
-    map<string, double> results = gatherer.GetResultsSoFar();
+    SimpleMonteCarlo5(theOption, input.Spot, 
+                    Vol, Rate, input.NumberOfPaths, gathererTwo);
+    
+    map<string, double> results = gathererTwo.GetResultsSoFar();
+    map<string, vector<double>> table = gathererTwo.GetTableSoFar();
     printResults(name, results);
+    cout << "\n\nsize of convergence table is: " << table["mean"].size() << "\n\n";
+    gathererTwo.PrintTable();
+
     }
 
     catch (const exception& e)
