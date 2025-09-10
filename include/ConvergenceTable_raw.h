@@ -17,9 +17,9 @@ private:
 
 public:
     ConvergenceTable(const Wrapper<StatisticsMC>& Inner_); //constructor from a gatherer
-    StatisticsMC* clone() const;
-    virtual void DumpOneResult(double result);  // updates the statistic 
+    StatisticsMC* clone() const override;
+    virtual void DumpOneResult(double result) override;  // updates the statistic 
     virtual std::map<std::string, std::vector<double>> GetTableSoFar() const;
-    virtual std::map<std::string, double> GetResultsSoFar() const;
+    virtual std::map<std::string, double> GetResultsSoFar() const override;
 
 };

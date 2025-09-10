@@ -27,10 +27,10 @@ class StatisticsMean : public StatisticsMC
 {
 public:
     StatisticsMean();
-    virtual void DumpOneResult(double result); // this method modifies result
+    virtual void DumpOneResult(double result) override; // this method modifies result
     virtual std::map<std::string,double> GetResultsSoFar() const override;
 public:
-    virtual StatisticsMC* clone() const;
+    virtual StatisticsMC* clone() const override;
 
 private:
     double RunningSum;

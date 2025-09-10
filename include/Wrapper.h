@@ -44,7 +44,7 @@ public:
     T& operator*() //dereference operator returning a reference of type T
     // returns a reference of the object Wrapper "points at"
     {
-        return *DataPtr
+        return *DataPtr;
     }
     const T& operator*() const// same as before but a constant reference
     {
