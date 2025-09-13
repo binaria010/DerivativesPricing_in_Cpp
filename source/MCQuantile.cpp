@@ -16,20 +16,36 @@ void StatisticQuantile::DumpOneResult(double result){
     Results.push_back(result);
 }
 
+double quantile_fct(std::vector<double> data, double prob){
+
+
+    double q_value = 0.0;
+    if (data.empty())
+        return q_value;
+
+    std::vector<double> sorted_data = data;
+    std::sort(sorted_data.begin(), sorted_data.end());
+
+    if (prob <= 0)
+        return sorted_data.front();  //first element
+    if (prob >= 1)
+        return sorted_data.back();   //las element 
+
+    size_t n = data.size();
+    double h = prob*(n-1.0) + 1.0;
+    size_t h_floor = static_cast<size_t>(std::floor(h));
+
+    size_t index = h_floor - 1;  // 0-base index 
+    q_value = sorted_data[index] + (h - h_floor)*(sorted_data[index +1] -sorted_data[index]);
+
+    return q_value;
+}
+
 std::map<std::string, double> StatisticQuantile::GetResultsSoFar() const {
     std::map<std::string, double> res;
-    if (Results.empty()){
-        res["quantile_" + std::to_string(ConfLevel)] = 0.0;
-        return res;
-    }
-    std::vector<double> sorted_Results = Results;
-    std::sort(sorted_Results.begin(), sorted_Results.end());
 
-    size_t index = static_cast<size_t>(ConfLevel*(Results.size()-1));
-    if (index >= Results.size())
-        index = Results.size() - 1;
-        
-    double q_value = sorted_Results[index];
+    double q_value = quantile_fct(Results, ConfLevel);
     res["quantile_" + std::to_string(ConfLevel)] = q_value;
     return res;
 }
+
