@@ -28,6 +28,6 @@ void StatisticsMean::DumpOneResult(double result)
 std::map<std::string, double> StatisticsMean::GetResultsSoFar() const
 {
     std::map<std::string, double> Results;
-    Results["mean"] = RunningSum / PathsDone;
+    Results["mean"] = (PathsDone > 0) ? RunningSum / PathsDone : 0.0;
     return Results;
 }
